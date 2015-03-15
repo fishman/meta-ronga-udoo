@@ -1,0 +1,36 @@
+diff --git a/arch/arm/boot/dts/imx6qdl-udoo.dtsi b/arch/arm/boot/dts/imx6qdl-udoo.dtsi
+index cc04f9e..b6efdf4 100644
+--- a/arch/arm/boot/dts/imx6qdl-udoo.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-udoo.dtsi
+@@ -144,12 +144,10 @@
+ 	};
+ 
+         sound-spdif {
+-                compatible = "fsl,imx-audio-spdif",
+-                           "fsl,imx-sabreauto-spdif";
++                compatible = "fsl,imx-audio-spdif";
+                 model = "imx-spdif";
+                 spdif-controller = <&spdif>;
+-                spdif-in;
+-                status = "disabled";
++                spdif-out;
+         };
+ 
+ 	v4l2_cap_0 {
+@@ -394,7 +392,7 @@
+ 
+                 pinctrl_spdif_1: spdifgrp-1 {
+                         fsl,pins = <
+-                                MX6QDL_PAD_KEY_COL3__SPDIF_IN 0x1b0b0
++                                MX6QDL_PAD_GPIO_19__SPDIF_OUT 0x1b0b0
+                         >;
+                 };
+ 
+@@ -505,6 +503,6 @@
+ &spdif {
+         pinctrl-names = "default";
+         pinctrl-0 = <&pinctrl_spdif_1>;
+-        status = "disabled";
++        status = "okay";
+ };
+ 
